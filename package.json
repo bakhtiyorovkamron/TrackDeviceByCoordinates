@@ -1,0 +1,58 @@
+{
+  "name": "track-it",
+  "version": "1.4.8",
+  "description": "A simple application based on flespi.io and built with Quasar and Leaflet.js. Allows tracking different devices on the map, viewing telemetry messages for these devices.",
+  "productName": "TrackIt!",
+  "capacitorId": "",
+  "author": "Sergey Buntsevich <scarry92@yandex.ru>",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.vue src",
+    "dev": "quasar dev -m spa",
+    "dev_local": "env NODE_LOCAL=local quasar dev -m spa",
+    "build": "quasar build -m spa",
+    "deploy": "rm -rf dist && npm run build && rm -rf deploy && mkdir deploy && cp -R dist/spa/* misc LICENSE package.json deploy && cp README.md deploy/README.md && node_modules/git-directory-deploy/bin/git-directory-deploy.sh -ddeploy -bgh-pages -rgit@git.gurtam.net:flespi/frontend/TrackIt.git && rm -rf deploy && git push github gh-pages"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.5.2",
+    "core-js": "^3.14.0",
+    "flespi-io-js": "github:flespi-software/flespi-io-js",
+    "leaflet": "^1.6.0",
+    "leaflet-geometryutil": "^0.10.0",
+    "leaflet.marker.slideto": "^0.2.0",
+    "leaflet.polyline.snakeanim": "^0.2.0",
+    "leaflet.polylinemeasure": "github:ppete2/Leaflet.PolylineMeasure#b85a4b9",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.0",
+    "qtelemetry": "github:flespi-software/QTelemetry",
+    "quasar": "^1.15.20",
+    "qvirtualscroll": "github:flespi-software/QVirtualScroll",
+    "vue-i18n": "^8.15.4",
+    "vue-virtual-scroll-list": "^1.4.6"
+  },
+  "devDependencies": {
+    "@quasar/app": "^2.2.10",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-vue": "^7.7.0",
+    "eslint-webpack-plugin": "^2.4.0",
+    "git-directory-deploy": "^1.5.1"
+  },
+  "browserslist": [
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "last 4 Edge versions",
+    "last 7 Safari versions",
+    "last 8 Android versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 FirefoxAndroid versions",
+    "last 10 iOS versions",
+    "last 5 Opera versions"
+  ],
+  "engines": {
+    "node": ">= 10.18.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}
